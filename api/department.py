@@ -1,14 +1,14 @@
 import yaml
 
-from test_wechat.api.baseapi import BaseApi
-from test_wechat.api.util import Util
+from api.base_api import BaseApi
+from api.util import Util
 
 
 class Department(BaseApi):
     def __init__(self):
         self.token = Util().get_token()
         self.params["token"] = self.token
-        with open("../api/department.yaml", encoding="utf-8") as f:
+        with open("../steps/department.yaml", encoding="utf-8") as f:
             self.data = yaml.load(f)
 
     def add(self,name,parentid,order,id):

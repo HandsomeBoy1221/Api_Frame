@@ -1,15 +1,15 @@
-import requests
+
 import yaml
 
-from test_wechat.api.baseapi import BaseApi
-from test_wechat.api.util import Util
+from api.base_api import BaseApi
+from api.util import Util
 
 
 class Wework(BaseApi):
     def __init__(self):
         self.token = Util().get_token()
         self.params["token"] = self.token
-        with open("../api/wework.yaml", encoding="utf-8") as f:
+        with open("../steps/wework.yaml", encoding="utf-8") as f:
             self.data = yaml.load(f)
 
     def test_add(self,userid,name,mobile,department=None):
